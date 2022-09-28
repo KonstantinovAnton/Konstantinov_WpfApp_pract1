@@ -4,6 +4,19 @@
              xmlns:local="clr-namespace:Konstantinov_WpfApp_pract1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="Control.FontFamily" Value="Calibri"></Setter>
+            <Setter Property="Control.FontSize" Value="18"></Setter>
+            <Setter Property="Control.FontWeight" Value="Bold"></Setter>
+            <Setter Property="Control.Padding" Value="5"></Setter>
+            <Setter Property="Control.Margin" Value="5"></Setter>
+            <Setter Property="Background" Value="BlueViolet"></Setter>
+        </Style>
+
+        <ControlTemplate x:Key="Shab" TargetType="Button">
+            <Border BorderBrush="Brown">
+                
+            </Border>
+        </ControlTemplate>
     </Application.Resources>
 </Application>

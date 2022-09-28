@@ -31,19 +31,33 @@ namespace Konstantinov_WpfApp_pract1
             {
                 spFromMetrs.Visibility = Visibility.Visible;
                 spFromNotMetrs.Visibility = Visibility.Collapsed;
-            
+                
+
+                tbKm.Text = "";
+                tbM.Text = "";
+                cbChoose2val.SelectedIndex = -1;
+                textBlockResult.Text = "Результат вычислений: ";
+
+
             }
             else
             {
+                cbChoose2valNotMetrs.SelectedIndex = -1;
                 spFromMetrs.Visibility = Visibility.Collapsed;
                 spFromNotMetrs.Visibility = Visibility.Visible;
+                textBlockWriteValue.Visibility = Visibility.Collapsed;
+
+                tbValue.Visibility = Visibility.Collapsed;
+                btnCalc2.Visibility = Visibility.Collapsed;
+                textBlockResult.Text = "Результат вычислений: ";
             }
         }
 
         private void btnCalc_Click(object sender, RoutedEventArgs e)
         {
-           
-            try {
+
+            try
+            {
                 if (tbKm.Text == "")
                     tbKm.Text = "0";
                 if (tbM.Text == "")
@@ -54,9 +68,9 @@ namespace Konstantinov_WpfApp_pract1
 
                 if (km == 0 && m == 0)
                 {
-                    MessageBox.Show("Введите хотя бы значение");
+                    MessageBox.Show("Введите хотя бы 1 значение");
                     return;
-                    
+
                 }
                 if (km < 0 || m < 0)
                 {
@@ -64,40 +78,44 @@ namespace Konstantinov_WpfApp_pract1
                     return;
 
                 }
-
+                if(cbChoose2val.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Выберите во что переводить");
+                    return;
+                }
 
                 switch (cbChoose2val.SelectedIndex)
                 {
                     // в мили
                     case 0:
-                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m/1000) * 0.621371) + " миль";
+                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m / 1000) * 0.621371) + " миль";
                         break;
                     // в футы
                     case 1:
-                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m/1000) * 3280.84) + " футов";
+                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m / 1000) * 3280.84) + " футов";
                         break;
-                       
+
                     // в ярды
                     case 2:
-                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m/1000) * 1093.61) + " ярдов";
+                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m / 1000) * 1093.61) + " ярдов";
                         break;
-                       
+
                     // в дюймы
                     case 3:
-                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m/1000) * 39370.1) + " дюймов";
+                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m / 1000) * 39370.1) + " дюймов";
                         break;
-                       
+
                     // в версты
                     case 4:
-                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m/1000) * 0.937383) + " верст";
+                        textBlockResult.Text = "Результат вычислений: " + Convert.ToString((km + m / 1000) * 0.937383) + " верст";
                         break;
                 }
 
-                
 
-                
 
-            
+
+
+
             }
             catch
             {
@@ -108,16 +126,18 @@ namespace Konstantinov_WpfApp_pract1
 
         private void btnCalc2_Click(object sender, RoutedEventArgs e)
         {
+            
+
             try
             {
                 double lenghtValue = Convert.ToDouble(tbValue.Text);
 
-                if(lenghtValue == 0)
+                if (lenghtValue == 0)
                 {
                     MessageBox.Show("Значение не может равняться нулю");
                     return;
                 }
-                if(lenghtValue < 0)
+                if (lenghtValue < 0)
                 {
                     MessageBox.Show("Значение не может быть отрицательным");
                     return;
@@ -130,34 +150,34 @@ namespace Konstantinov_WpfApp_pract1
                 {
                     // из миль
                     case 0:
-                        result = (Convert.ToString(lenghtValue / 0.621371)).Split(',');
-                        newResult = result[1][0] + "" +result[1][1];
+                        result = (Convert.ToString(lenghtValue / 0.621371)).Split('.');
+                        newResult = result[1][0] + "" + result[1][1];
                         textBlockResult.Text = "Результат вычислений: " + result[0] + " км " + newResult + " м";
                         break;
                     // из футов
                     case 1:
-                        result = (Convert.ToString(lenghtValue / 3280.84)).Split(',');
+                        result = (Convert.ToString(lenghtValue / 3280.84)).Split('.');
                         newResult = result[1][0] + "" + result[1][1];
                         textBlockResult.Text = "Результат вычислений: " + result[0] + " км " + newResult + " м";
                         break;
 
                     // из ярдов
                     case 2:
-                        result = (Convert.ToString(lenghtValue / 1093.61)).Split(',');
+                        result = (Convert.ToString(lenghtValue / 109.361)).Split('.');
                         newResult = result[1][0] + "" + result[1][1];
                         textBlockResult.Text = "Результат вычислений: " + result[0] + " км " + newResult + " м";
                         break;
 
                     // из дюймов
                     case 3:
-                        result = (Convert.ToString(lenghtValue / 39370.1)).Split(',');
+                        result = (Convert.ToString(lenghtValue / 39370.1)).Split('.');
                         newResult = result[1][0] + "" + result[1][1];
                         textBlockResult.Text = "Результат вычислений: " + result[0] + " км " + newResult + " м";
                         break;
 
                     // из верст
                     case 4:
-                        result = (Convert.ToString(lenghtValue / 0.937383)).Split(',');
+                        result = (Convert.ToString(lenghtValue / 0.937383)).Split('.');
                         newResult = result[1][0] + "" + result[1][1];
                         textBlockResult.Text = "Результат вычислений: " + result[0] + " км " + newResult + " м";
                         break;
@@ -172,6 +192,16 @@ namespace Konstantinov_WpfApp_pract1
 
         private void cbChoose2valNotMetrs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            textBlockResult.Text = "Результат вычислений: ";
+
+            textBlockWriteValue.Visibility = Visibility.Visible;
+            tbValue.Visibility = Visibility.Visible;
+            btnCalc2.Visibility = Visibility.Visible;
+        }
+
+        private void cbChoose2val_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            textBlockResult.Text = "Результат вычислений: ";
+        }
     }
 }

@@ -27,21 +27,21 @@
             
             
         </WrapPanel>
-        <StackPanel x:Name="spFromMetrs" Grid.Row="2" Orientation="Horizontal" Margin="10" Visibility="Collapsed" >
-            <TextBlock Text="Введите километры" Width="114" VerticalAlignment="Center" ></TextBlock>
+        <StackPanel x:Name="spFromMetrs" Grid.Row="2" Orientation="Horizontal" Margin="10" Visibility="Collapsed">
+            <TextBlock x:Name ="textBlockWriteKm" Text="Введите километры" Width="114" VerticalAlignment="Center"></TextBlock>
             <TextBox x:Name="tbKm" Height="20" Width="40"></TextBox>
 
             <TextBlock Text="Введите метры"  Width="88" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
             <TextBox x:Name="tbM"  Height="20" Width="40"></TextBox>
             <TextBlock Text="Перевести в"  Width="72" VerticalAlignment="Center" Margin="10,0,0,0"></TextBlock>
-            <ComboBox  Name="cbChoose2val" Height="30"  VerticalAlignment="Center" Width="94" >
+            <ComboBox  Name="cbChoose2val" Height="30"  VerticalAlignment="Center" Width="94" SelectionChanged="cbChoose2val_SelectionChanged">
                 <TextBlock>мили</TextBlock>
                 <TextBlock>футы</TextBlock>
                 <TextBlock>ярды</TextBlock>
                 <TextBlock>дюймы</TextBlock>
                 <TextBlock>версты</TextBlock>
             </ComboBox>
-            <Button x:Name="btnCalc" Content="Рассчитать" Click="btnCalc_Click" VerticalAlignment="Center" Height="30" Margin="10,0,0,0" Width="90"></Button>
+            <Button x:Name="btnCalc" Content="Рассчитать" Click="btnCalc_Click" VerticalAlignment="Center" Height="30" Margin="10,0,0,0" Width="90" Style="{StaticResource MyButtonStyle}"></Button>
         </StackPanel>
         
         
@@ -54,9 +54,9 @@
                 <TextBlock>дюймов</TextBlock>
                 <TextBlock>верст</TextBlock>
             </ComboBox>
-            <TextBlock Text="Введите значение" Width="110" VerticalAlignment="Center" Margin="10, 0, 0, 0"></TextBlock>
-            <TextBox x:Name="tbValue" Height="20" Width="40" VerticalAlignment="Center" Margin="10"></TextBox>
-            <Button x:Name="btnCalc2" Content="Рассчитать" Click="btnCalc2_Click" VerticalAlignment="Center" Height="30" Width="90" Margin="10,0,10,0"></Button>
+            <TextBlock x:Name="textBlockWriteValue"  Text="Введите значение" Width="110" VerticalAlignment="Center" Margin="10, 0, 0, 0" Visibility="Collapsed"></TextBlock>
+            <TextBox x:Name="tbValue" Height="20" Width="40" VerticalAlignment="Center" Margin="10" Visibility="Collapsed"></TextBox>
+            <Button x:Name="btnCalc2" Content="Рассчитать" Click="btnCalc2_Click" VerticalAlignment="Center" Height="30" Width="90" Margin="10,0,10,0" Visibility="Collapsed"></Button>
         </StackPanel>
 
 
