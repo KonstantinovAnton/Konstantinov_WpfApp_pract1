@@ -4,19 +4,54 @@
              xmlns:local="clr-namespace:Konstantinov_WpfApp_pract1"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style x:Key="MyButtonStyle" TargetType="Button">
-            <Setter Property="Control.FontFamily" Value="Calibri"></Setter>
-            <Setter Property="Control.FontSize" Value="18"></Setter>
-            <Setter Property="Control.FontWeight" Value="Bold"></Setter>
-            <Setter Property="Control.Padding" Value="5"></Setter>
-            <Setter Property="Control.Margin" Value="5"></Setter>
-            <Setter Property="Background" Value="BlueViolet"></Setter>
+        
+        <!-- Стиль для StackPanel -->
+        <Style x:Key="stackPanelStyle" TargetType="StackPanel">
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="7"></Setter>
+            <Setter Property="Orientation" Value="Horizontal"></Setter>
         </Style>
 
-        <ControlTemplate x:Key="Shab" TargetType="Button">
-            <Border BorderBrush="Brown">
-                
+        <!-- Стиль для TextBlock-->
+        <Style x:Key="textBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+
+        <!-- Стиль для TextBox-->
+        <Style x:Key="textBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+           
+        </Style>
+
+        <!-- Стиль для comboBox-->
+        <Style x:Key="comboBoxStyle" TargetType="ComboBox">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+
+        <!-- Шаблон для кнопки-->
+        <ControlTemplate x:Key="ButtonTemplate" TargetType="Button">
+
+            <Border x:Name="border" Background="#6487B4" Width="120" Height="40">
+                <ContentPresenter RecognizesAccessKey="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+                </ContentPresenter>
             </Border>
+            
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter TargetName="border" Property="Background" Value="#4C709E"></Setter>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter TargetName="border" Property="Background" Value="#45658F"></Setter>
+                </Trigger>
+       
+            </ControlTemplate.Triggers>
         </ControlTemplate>
+
+
     </Application.Resources>
 </Application>

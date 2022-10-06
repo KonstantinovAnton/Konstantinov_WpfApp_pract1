@@ -192,6 +192,7 @@ namespace Konstantinov_WpfApp_pract1
 
         private void cbChoose2valNotMetrs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             textBlockResult.Text = "Результат вычислений: ";
 
             textBlockWriteValue.Visibility = Visibility.Visible;
